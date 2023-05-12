@@ -1,25 +1,19 @@
 # Detect language
-I made a program who can detect in which language a given document is written. It's precision can greatly be improved since I excluded non-ascii characters, mainly for performance purposes.
 
-Language & algorithm choice
---------------------
-I chose to code this program in C since it is a very fast language, but you can also focus on micro-optimisations
-and use GCC macros and shortcuts to make your program as fast and as performent as possible.
-For the algorithm, I implemented the Levenshtein Distance since it is used to compute changes or edits between two strings,
-which is really useful for seeking text similarity.
+This program detects the language of a given document using the Levenshtein Distance algorithm. It is implemented in C for performance purposes and can be further optimized using GCC macros and shortcuts. The program excludes non-ASCII characters for now, which affects its precision.
 
-Verbose output
---------------------
-To have a more verbose output you can type "make debug" or "make hard_d". It will prompt all operations
-the program is doing to come to the final result.
+## Usage
 
-Unit tests
---------------------
-I did some unit testing on the Levenshtein Distance algorithm to be sure everything is working as intended.
-The unit tests can be generated with "make test"
+To run the program, simply run the executable and provide the path to the file you want to analyze. For a more verbose output, use the `make debug` or `make hard_d` commands.
 
-Ressources
------------------------------------
--   Letter frequency: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
--   Levenshtein Distance: https://en.wikipedia.org/wiki/Levenshtein_distance
--   Choice of algorithm: https://stackabuse.com/levenshtein-distance-and-text-similarity-in-python/
+## Implementation Details
+
+The program generates a frequency table for each language it supports, based on the relative frequencies of letters in that language. Then, it calculates the Levenshtein Distance between the document and the frequency tables, using the lowest distance as the language detection result.
+
+Unit tests were conducted on the Levenshtein Distance algorithm to ensure its accuracy and can be generated with the `make test` command.
+
+## Resources
+
+- Letter frequency: https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_other_languages
+- Levenshtein Distance: https://en.wikipedia.org/wiki/Levenshtein_distance
+- Choice of algorithm: https://stackabuse.com/levenshtein-distance-and-text-similarity-in-python/```
